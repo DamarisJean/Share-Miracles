@@ -9,6 +9,15 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <style>
+            .welcome-text {
+                font-family: "League Spartan", sans-serif;
+                font-size: 2.5rem;
+                font-weight: bold;
+                text-align: center;
+                margin: 10rem 0;
+            }
+        </style>
 
         <!-- Scripts -->
         @routes
