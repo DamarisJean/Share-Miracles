@@ -1,98 +1,60 @@
 import { Link, Head } from "@inertiajs/react";
 import ApplicationLogo from "@/Components/ApplicationLogo";
-import { SlArrowDown } from "react-icons/sl";
-import { useRef } from "react";
 import MiraclesCarousel from "../Components/MiraclesCarousel";
 
 export default function Welcome({ auth }) {
-    const miraclesRef = useRef(null);
-    const scrollToMiracles = () => {
-        miraclesRef.current.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-        });
-    };
     return (
         <>
             <Head title="Welcome" />
+
             <div
                 className="h-screen bg-cover bg-center"
                 style={{ backgroundImage: "url(/images/background2.jpg)" }}
             >
-                <div className="relative flex flex-col items-center justify-center text-[#2a4047]">
-                    <div className="relative w-full max-w-2xl px-6 lg:max-w-7xl">
-                        <header className="grid grid-cols-2 items-center gap-2 lg:grid-cols-3">
-                            <div className="flex lg:justify-center lg:col-start-2">
-                                <div>
-                                    <Link href="/">
-                                        <ApplicationLogo className="h-40" />
-                                    </Link>
-                                </div>
-                            </div>
-
-                            {/* NAVIGATION  */}
-                            <nav className="-mx-3 flex flex-1 justify-end">
+                <div className="left-0 right-0 flex justify-center">
+                    <Link href="/">
+                        <ApplicationLogo className="h-40" />
+                    </Link>
+                </div>
+                <div className="mx-auto max-w-7xl sm:px-6  lg:px-1">
+                    <div className="relative isolate overflow-hidden  sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+                        <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+                            <h2 className="text-3xl font-bold tracking-tight text-[#2a4047] sm:text-5xl">
+                                Experience Miracles.
+                                <br />
+                                Start writing today.
+                            </h2>
+                            <p className="mt-6 text-xl leading-8 text-[#2a4047]">
+                                Light finds its way to our hearts every day,
+                                Read the stories of others and share you own.
+                            </p>
+                            <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
                                 {auth.user ? (
                                     <Link
                                         href={route("dashboard")}
-                                        className="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition focus:outline-none"
+                                        className="inline-flex items-center px-6 py-3 bg-[#2a4047] border border-transparent rounded-md font-semibold text-sm text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150"
                                     >
-                                        Dashboard
+                                        Get started
                                     </Link>
                                 ) : (
-                                    <>
-                                        <Link
-                                            href={route("login")}
-                                            className="rounded-md px-3 py-2 ring-1 ring-transparent transition focus:outline-none text-2a4047 font-semibold text-lg dark:focus-visible:#2a4047 hover:text-gray-400 dark:hover:text-gray-400"
-                                        >
-                                            Log in
-                                        </Link>
-                                        <Link
-                                            href={route("register")}
-                                            className="rounded-md px-3 py-2 ring-1 ring-transparent transition focus:outline-none text-2a4047 font-semibold text-lg dark:focus-visible:#2a4047 hover:text-gray-400 dark:hover:text-gray-400"
-                                        >
-                                            Register
-                                        </Link>
-                                    </>
+                                    <Link
+                                        href={route("login")}
+                                        className="inline-flex items-center px-6 py-3 bg-[#2a4047] border border-transparent rounded-md font-semibold text-sm text-white uppercase tracking-widest hover:bg-gray-700   focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150"
+                                    >
+                                        Get started
+                                    </Link>
                                 )}
-                            </nav>
-                            {/* NAVIGATION  */}
-                        </header>
-
-                        <main className="mt-6 flex flex-col items-center justify-center">
-                            <div className="text-center mb-8">
-                                <div className="flex flex-col items-center justify-center">
-                                    <h1 className="text-5xl font-bold mb-4 mt-10">
-                                        Experience Miracles
-                                    </h1>
-                                    <h4 className="text-3xl max-w-2xl text-left ml-40 ">
-                                        Light finds its way to our hearts every
-                                        day.
-                                        <br />
-                                        <Link to="/miracles" className="mr-2">
-                                            <b>Read the stories</b>
-                                        </Link>
-                                        <span className="mr-2">
-                                            of others and
-                                        </span>
-                                        <Link to="/create">
-                                            <b>Share your own.</b>
-                                        </Link>
-                                        <span>|</span>
-                                    </h4>
-                                </div>
                             </div>
-                            <button
-                                onClick={scrollToMiracles}
-                                className="text-[#2a4047] font-bold py-20 px-3 rounded-full focus:outline-none focus:shadow-outline"
-                            >
-                                <SlArrowDown className="text-5xl" />
-                            </button>
-                        </main>
+                        </div>
+                        <div className="relative mt-16 h-80 lg:mt-8 ">
+                            <div>
+                                <MiraclesCarousel />
+                                <div />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <MiraclesCarousel />
         </>
     );
 }

@@ -2,10 +2,10 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
+use App\Http\Controllers\MiracleController;
+use App\Http\Controllers\ImageController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\http\Controllers\MiracleController;
-use App\http\Controllers\ImageController;
 
 
 Route::get('/', function () {
@@ -13,13 +13,16 @@ Route::get('/', function () {
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
     ]);
 });
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/create', function () {
+    return Inertia::render('CreateMiracle');
+})->middleware(['auth', 'verified'])->name('create');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -35,11 +38,8 @@ Route::post('/miracles/{id}/like', [MiracleController::class, 'like'])->middlewa
 Route::delete('/miracles/{id}/like', [MiracleController::class, 'unlike'])->middleware('auth:sanctum');
 Route::get('/miracles/{id}/like-status', [MiracleController::class, 'checkLikeStatus'])->middleware('auth:sanctum');
 Route::get('/miracles/{id}/like-info', [MiracleController::class, 'getLikeInfo'])->middleware('auth:sanctum');
-
-
-
-
-Route::get('/images', [ImageController::class,'index']);
-
+// Route::post('CreateMiracle', [MiracleController::class, 'store']);
+Route::get('api/images', [ImageController::class,'index']);
 
 require __DIR__.'/auth.php';
+ 

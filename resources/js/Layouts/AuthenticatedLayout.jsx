@@ -10,14 +10,14 @@ export default function Authenticated({ user, header, children }) {
         useState(false);
 
     return (
-        <div className="min-h-screen bg-gray-100">
-            <nav className="bg-white border-b border-gray-100">
+        <div className="min-h-screen bg-white">
+            <nav className="bg-white border-b ">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
                         <div className="flex">
-                            <div className="shrink-0 flex items-center">
+                            <div className="shrink-0 flex items-center h-25">
                                 <Link href="/">
-                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
+                                    <ApplicationLogo className="block h-20 w-auto fill-current" />
                                 </Link>
                             </div>
 
@@ -26,7 +26,13 @@ export default function Authenticated({ user, header, children }) {
                                     href={route("dashboard")}
                                     active={route().current("dashboard")}
                                 >
-                                    Dashboard
+                                    READ MRIACLES
+                                </NavLink>
+                                <NavLink
+                                    href={route("create")}
+                                    active={route().current("create")}
+                                >
+                                    CREATE MIRACLE
                                 </NavLink>
                             </div>
                         </div>
@@ -131,6 +137,12 @@ export default function Authenticated({ user, header, children }) {
                             active={route().current("dashboard")}
                         >
                             Dashboard
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route("create")}
+                            active={route().current("create")}
+                        >
+                            Create
                         </ResponsiveNavLink>
                     </div>
 
