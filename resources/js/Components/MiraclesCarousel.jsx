@@ -39,27 +39,26 @@ export default function MiraclesCarousel() {
             : "images/default.jpg";
 
         return (
-            <div
-                key={miracle.id}
-                className="relative h-96 overflow-hidden shadow-lg rounded-br-3xl"
-            >
-                <img
-                    src={imageUrl}
-                    alt={miracle.title}
-                    className="w-full h-full object-cover"
-                />
-                <Link to={`/extended/${miracle.id}`}>
-                    <h2 className="absolute bottom-0 left-0 right-0 p-4 text-white text-2xl font-bold bg-black bg-opacity-50 rounded-tr-md">
-                        {miracle.title}
-                    </h2>
-                </Link>
+            <div key={miracle.id} className="inline-block w-1/2 px-2 p-2">
+                <div className="relative h-60 overflow-hidden shadow-lg rounded-lg ">
+                    <img
+                        src={imageUrl}
+                        alt={miracle.title}
+                        className="w-full h-full object-cover"
+                    />
+                    <Link to={`/extended/${miracle.id}`}>
+                        <h2 className="absolute bottom-0 left-0 right-0 p-4 text-white text-xl font-bold bg-black bg-opacity-50 rounded-b-lg">
+                            {miracle.title}
+                        </h2>
+                    </Link>
+                </div>
             </div>
         );
     };
 
     const renderMiracles = () => (
-        <div>
-            {miracles.slice(0, 1).map((miracle, i) => {
+        <div className="flex justify-center items-center">
+            {miracles.slice(0, 3).map((miracle, i) => {
                 const miracleIndex = (currentIndex + i) % miracles.length;
                 return renderMiracleItem(miracles[miracleIndex]);
             })}
@@ -67,7 +66,7 @@ export default function MiraclesCarousel() {
     );
 
     return (
-        <div className="relative w-full max-w-[57rem] rounded-br-lg overflow-hidden">
+        <div className="w-full max-w-screen-xl mx-auto">
             {miracles.length ? (
                 renderMiracles()
             ) : (

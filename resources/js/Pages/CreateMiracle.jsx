@@ -44,42 +44,48 @@ export default function CreateMiracle({ auth }) {
         <AuthenticatedLayout user={auth.user}>
             <div className="max-w-4xl mx-auto p-6">
                 <form onSubmit={handleSubmit} className="space-y-8">
-                    {selectedImage ? (
-                        <div
-                            className="selected-image-preview w-full h-48 bg-cover bg-center rounded cursor-pointer"
-                            style={{
-                                backgroundImage: `url(${selectedImage.path})`,
-                            }}
-                            onClick={handleImageClick}
-                        />
-                    ) : (
-                        <button
-                            className="select-image p-3 w-12 h-12 bg-gray-100 flex items-center justify-center rounded-full hover:bg-gray-200 transition duration-150 ease-in-out"
-                            type="button"
-                            onClick={() =>
-                                setShowImageSelector(!showImageSelector)
-                            }
-                        >
-                            <GoPlus size={24} color="#4A5568" />
-                        </button>
-                    )}
+                    <div className="space-y-4">
+                        <div className="flex items-center space-x-4">
+                            {!selectedImage && (
+                                <button
+                                    className="select-image p-3 w-12 h-12 bg-gray-100 flex items-center justify-center rounded-full hover:bg-gray-200 transition duration-150 ease-in-out"
+                                    type="button"
+                                    onClick={() =>
+                                        setShowImageSelector(!showImageSelector)
+                                    }
+                                >
+                                    <GoPlus size={24} color="#4A5568" />
+                                </button>
+                            )}
+                            <PrimaryButton type="submit">Publish</PrimaryButton>
+                        </div>
+                        {selectedImage && (
+                            <div
+                                className="selected-image-preview w-full h-48 bg-cover bg-center rounded cursor-pointer"
+                                style={{
+                                    backgroundImage: `url(${selectedImage.path})`,
+                                }}
+                                onClick={handleImageClick}
+                            />
+                        )}
+                    </div>
                     <div>
                         <textarea
                             id="titleInput"
-                            className="w-full text-3xl font-times text-gray-800 bg-transparent  border-none focus:border-none focus:ring-0"
+                            className="w-full text-3xl font-times text-gray-800 bg-transparent border-none focus:border-none focus:ring-0 resize-none"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                             placeholder="Title"
                         />
                         <textarea
                             id="contentInput"
-                            className="w-full mt-4 text-lg font-times text-gray-800 bg-transparent border-none focus:border-none focus:ring-0"
+                            className="w-full mt-1 text-lg font-times text-gray-800 bg-transparent border-none focus:border-none focus:ring-0 resize-none"
                             value={content}
                             onChange={handleContentChange}
                             placeholder="What's your miracle?"
+                            ref={textAreaRef}
                         />
                     </div>
-                    <PrimaryButton type="submit">Publish</PrimaryButton>
                 </form>
 
                 {showImageSelector && (
