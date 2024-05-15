@@ -39,15 +39,14 @@ export default function MiraclesCarousel() {
             : "images/default.jpg";
 
         return (
-            <div key={miracle.id} className="inline-block w-1/2 px-2 p-2">
-                <div className="relative h-60 overflow-hidden shadow-lg rounded-lg ">
-                    <img
-                        src={imageUrl}
-                        alt={miracle.title}
-                        className="w-full h-full object-cover"
-                    />
+            <div
+                key={miracle.id}
+                className="cylinder w-64 h-60 bg-cover bg-center flex items-center justify-center m-4 rounded-t-2xl" // Adjusted width and rounding
+                style={{ backgroundImage: `url(${imageUrl})` }}
+            >
+                <div className="text-center p-4 bg-black bg-opacity-50 rounded-b-lg">
                     <Link to={`/extended/${miracle.id}`}>
-                        <h2 className="absolute bottom-0 left-0 right-0 p-4 text-white text-xl font-bold bg-black bg-opacity-50 rounded-b-lg">
+                        <h2 className="text-2xl font-bold text-white">
                             {miracle.title}
                         </h2>
                     </Link>
@@ -57,21 +56,37 @@ export default function MiraclesCarousel() {
     };
 
     const renderMiracles = () => (
-        <div className="flex justify-center items-center">
-            {miracles.slice(0, 3).map((miracle, i) => {
-                const miracleIndex = (currentIndex + i) % miracles.length;
-                return renderMiracleItem(miracles[miracleIndex]);
+        <div className="flex flex-row justify-center items-center overflow-x-auto w-full">
+            {miracles.map((miracle) => {
+                return renderMiracleItem(miracle);
             })}
         </div>
     );
 
     return (
-        <div className="w-full max-w-screen-xl mx-auto">
-            {miracles.length ? (
-                renderMiracles()
-            ) : (
-                <p className="text-gray-500">Loading miracles...</p>
-            )}
+        <div className="relative">
+            <div className="absolute top-0 left-0 w-full">
+                <div className="text-center mt-20 w-full">
+                    <h4 className="text-4xl font-bold tracking-tight text-[#2a4047] sm:text-5xl">
+                        Read and Explore other Stories
+                    </h4>
+                </div>
+            </div>
+            <div
+                className="w-full flex flex-col justify-center items-center pt-16"
+                style={{
+                    height: "calc(100vh - 4rem)",
+                    backgroundColor: "#DFDAD6",
+                }}
+            >
+                {miracles.length ? (
+                    renderMiracles()
+                ) : (
+                    <p className="text-gray-500 text-center">
+                        Loading miracles...
+                    </p>
+                )}
+            </div>
         </div>
     );
 }

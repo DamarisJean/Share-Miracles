@@ -8,19 +8,20 @@ export default function Welcome({ auth }) {
             <Head title="Welcome" />
 
             <div
-                className="h-screen bg-cover bg-center flex flex-col justify-between"
+                className="h-screen bg-cover bg-center flex flex-col justify-between "
                 style={{ backgroundImage: "url(/images/background2.jpg)" }}
             >
-                <div className="flex-1 flex flex-col justify-center items-center text-center">
+                <div className="flex-0 flex flex-col justify-center items-center text-center">
                     <Link href="/">
-                        <ApplicationLogo className="h-40 mb-10" />
+                        <ApplicationLogo className="h-60 mb-5" />
                     </Link>
-                    <h2 className="text-3xl font-bold tracking-tight text-[#2a4047] sm:text-5xl">
+                    <h2 className="text-6xl font-bold tracking-tight text-[#2a4047] sm:text-7xl">
                         Experience Miracles.
                         <br />
                         Start writing today.
                     </h2>
-                    <p className="mt-6 text-xl leading-8 text-[#2a4047]">
+
+                    <p className="mt-6 text-2xl leading-8 text-[#2a4047]">
                         Light finds its way to our hearts every day,{" "}
                         <strong>Read the stories</strong> of others and{" "}
                         <strong>Share your own.</strong>
@@ -43,10 +44,9 @@ export default function Welcome({ auth }) {
                         )}
                     </div>
                 </div>
-                <div className="w-full">
-                    <MiraclesCarousel />
-                </div>
             </div>
+
+            <MiraclesCarousel />
         </>
     );
 }
