@@ -25,6 +25,7 @@ Route::get('/create', function () {
 })->middleware(['auth', 'verified'])->name('create');
 
 
+// web.php
 
 
 Route::middleware('auth')->group(function () {
@@ -39,7 +40,8 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/miracles', [MiracleController::class, 'index']);
 Route::post('/miracles', [MiracleController::class, 'store']);
-Route::get("/miracle/{id}", [MiracleController::class, "show"]);
+Route::get('/extended/{id}', [MiracleController::class, 'show'])->name('extended.show');
+// Route::get("/miracle/{id}", [MiracleController::class, "show"]);
 Route::post('/miracles/{id}/like', [MiracleController::class, 'like'])->middleware('auth:sanctum');
 Route::delete('/miracles/{id}/like', [MiracleController::class, 'unlike'])->middleware('auth:sanctum');
 Route::get('/miracles/{id}/like-status', [MiracleController::class, 'checkLikeStatus'])->middleware('auth:sanctum');
