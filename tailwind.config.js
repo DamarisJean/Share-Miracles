@@ -13,7 +13,11 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ["Figtree", ...defaultTheme.fontFamily.sans],
+                sans: [
+                    "DM Sans",
+                    "sans-serif",
+                    ...defaultTheme.fontFamily.sans,
+                ],
                 times: ["Times New Roman", "Times", "serif"],
             },
         },

@@ -1,6 +1,7 @@
 import { Link, Head } from "@inertiajs/react";
 import ApplicationLogo from "@/Components/ApplicationLogo";
 import MiraclesCarousel from "../Components/MiraclesCarousel";
+import Footer from "../Components/Footer";
 
 export default function Welcome({ auth }) {
     return (
@@ -47,6 +48,7 @@ export default function Welcome({ auth }) {
             </div>
 
             <MiraclesCarousel />
+            <Footer />
         </>
     );
 }

@@ -8,18 +8,13 @@
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-        <style>
-            .welcome-text {
-                font-family: "League Spartan", sans-serif;
-                font-size: 2.5rem;
-                font-weight: bold;
-                text-align: center;
-                margin: 10rem 0;
-            }
-        </style>
 
-        <!-- Scripts -->
+       <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+
+    
         @routes
         @viteReactRefresh
         @vite(['resources/js/app.jsx', "resources/js/Pages/{$page['component']}.jsx"])

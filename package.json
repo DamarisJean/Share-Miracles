@@ -20,6 +20,8 @@
         "vite": "^5.0"
     },
     "dependencies": {
-        "react-icons": "^5.2.1"
+        "framer-motion": "^11.2.2",
+        "react-icons": "^5.2.1",
+        "react-responsive-carousel": "^3.2.23"
     }
 }
