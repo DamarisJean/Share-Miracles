@@ -32,13 +32,13 @@ export default function ExtendedMiracle() {
     }
 
     return (
-        <div className="max-w-4xl mx-auto p-5 bg-white rounded-lg shadow-lg mt-6 font-times">
+        <div className="max-w-4xl mx-auto py-5 px-4 bg-white rounded-lg mt-6">
             <div className="mb-4">
-                <h1 className="text-3xl font-bold text-gray-800">
+                <h1 className="text-2xl font-light text-gray-800">
                     {miracle.title}
                 </h1>
                 {miracle.user && (
-                    <p className="text-sm text-gray-500">
+                    <p className="text-xs text-gray-400">
                         Posted by {miracle.user.name} on{" "}
                         {miracle.created_at?.substring(0, 10)}
                     </p>
@@ -49,12 +49,12 @@ export default function ExtendedMiracle() {
                     <img
                         src={miracle.image.path}
                         alt={miracle.title}
-                        className="w-full object-cover rounded"
+                        className="w-full rounded-sm object-cover"
                         style={{ height: "300px" }}
                     />
                 </div>
             )}
-            <p className="text-gray-700 leading-relaxed">{miracle.content}</p>
+            <p className="text-gray-600 leading-relaxed">{miracle.content}</p>
             {auth?.user && (
                 <div className="mt-6">
                     <Likes miracleId={miracle.id} isInitiallyLiked={isLiked} />

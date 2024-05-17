@@ -26,9 +26,6 @@ Route::get('/dashboard', function () {
 
 
 
-
-
-
 Route::get('/create', function () {
     return Inertia::render('CreateMiracle');
 })->middleware(['auth', 'verified'])->name('create');
@@ -38,10 +35,10 @@ Route::get('/miracles', [MiracleController::class, 'index']);
 Route::post('/miracles', [MiracleController::class, 'store']);
 Route::get('/extended/{id}', [MiracleController::class, 'show'])->name('extended.show');
 Route::get("api/miracle/{id}", [MiracleController::class, "show"]);
-Route::post('/miracles/{id}/like', [MiracleController::class, 'like'])->middleware('auth:sanctum');
-Route::delete('/miracles/{id}/like', [MiracleController::class, 'unlike'])->middleware('auth:sanctum');
+Route::post('api/miracles/{id}/like', [MiracleController::class, 'like'])->middleware('auth:sanctum');
+Route::delete('api/miracles/{id}/like', [MiracleController::class, 'unlike'])->middleware('auth:sanctum');
 Route::get('/miracles/{id}/like-status', [MiracleController::class, 'checkLikeStatus'])->middleware('auth:sanctum');
-Route::get('/miracles/{id}/like-info', [MiracleController::class, 'getLikeInfo'])->middleware('auth:sanctum');
+Route::get('api/miracles/{id}/like-info', [MiracleController::class, 'getLikeInfo'])->middleware('auth:sanctum');
 Route::get('api/images', [ImageController::class,'index']);
 
 require __DIR__.'/auth.php';
