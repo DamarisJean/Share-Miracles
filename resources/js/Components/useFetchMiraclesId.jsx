@@ -1,9 +1,8 @@
-// hooks/useFetchMiracles.js
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 const useFetchMiracles = (url) => {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -12,13 +11,13 @@ const useFetchMiracles = (url) => {
             try {
                 const response = await axios.get(url);
                 setData(response.data);
-                console.log(response.data);
             } catch (error) {
                 setError("There was an error fetching the miracles");
                 console.error(error);
             }
             setLoading(false);
         };
+
         fetchData();
     }, [url]);
 

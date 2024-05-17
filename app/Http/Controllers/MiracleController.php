@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use Inertia\Inertia;
 
 use App\Models\Miracle;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+
 
 class MiracleController extends Controller
 {
@@ -38,20 +39,18 @@ class MiracleController extends Controller
 
     // Show a specific miracle
     public function show($id)
-{
-    $miracle = Miracle::with(['user:id,name', 'image'])->find($id);
+    {
+        $miracle = Miracle::with(['user:id,name', 'image'])->find($id);
+        if (!$miracle) {
+            return response()->json(['message' => 'Miracle not found'], 404);
+        }
 
-    if (!$miracle) {
-        return response()->json(['message' => 'Miracle not found'], 404);
+        return Inertia::render('ExtendedMiracle', [
+            'miracle' => $miracle,
+            'id' => $id,
+        ]);
     }
 
-    return Inertia::render('ExtendedMiracle', [
-        'miracle' => $miracle->load(['likes' => function($query) {
-            $query->where('user_id', auth()->id());
-        }]),
-        'isLiked' => $miracle->likes->contains(auth()->id()),
-    ]);
-}
     // Like a miracle
     public function like(Request $request, $id)
     {

@@ -44,4 +44,11 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function likes()
+{
+    return $this->belongsToMany(Miracle::class, 'likes', 'user_id', 'miracle_id')->withTimestamps();
 }
+
+}
+
