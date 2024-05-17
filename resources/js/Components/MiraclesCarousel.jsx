@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import useFetchMiracles from "../Components/useFetchMiracles";
 import { HiArrowLeft } from "react-icons/hi";
 import { HiArrowRight } from "react-icons/hi";
+import { Link } from "@inertiajs/react";
 
 export default function MiraclesCarousel() {
     const miracles = useFetchMiracles();
@@ -39,36 +40,35 @@ export default function MiraclesCarousel() {
             ? miracle.image.path
             : "images/default.jpg";
 
-        const changingSizeTitleMiracle =
-            miracle.title.length > 20
-                ? `${miracle.title.slice(0, 20)}...`
-                : miracle.title;
         return (
             <motion.div
                 key={miracle.id}
                 className="flex flex-col items-center justify-center mx-1 cursor-default overflow-x-auto rounded-lg"
                 style={{ minWidth: `${itemWidth}px` }}
             >
-                <div className="w-72 h-96 overflow-hidden flex items-center justify-center  cursor-pointer overflow-x-auto">
+                <Link
+                    href={route("extended.show", { id: miracle.id })}
+                    className="w-72 h-96 overflow-hidden flex items-center justify-center cursor-pointer"
+                >
                     <div
                         className="w-96 h-96 bg-cover bg-center rounded-xl"
                         style={{ backgroundImage: `url(${imageUrl})` }}
                     ></div>
-                </div>
+                </Link>
                 <div className="mt-4 w-full text-center">
-                    <a
-                        href={`/extended/${miracle.id}`}
+                    <Link
+                        href={route("extended.show", { id: miracle.id })}
                         className="text-2xl font-times"
                     >
-                        {changingSizeTitleMiracle}
-                    </a>
+                        {miracle.title}
+                    </Link>
                 </div>
             </motion.div>
         );
     };
 
     return (
-        <div className="w-full flex flex-col justify-center items-center  bg-[#DFDAD6] h-[calc(100vh)]">
+        <div className="w-full flex flex-col justify-center items-center bg-[#DFDAD6] h-[calc(100vh)]">
             <div className="text-center w-full mb-10">
                 <h4 className="text-4xl font-bold tracking-tight text-[#2a4047] sm:text-5xl mt-8">
                     Read and Explore other Stories

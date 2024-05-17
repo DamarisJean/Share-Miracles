@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "@inertiajs/react";
-import useFetchMiracles from "../Components/useFetchMiraclesId.jsx";
+import useFetchMiracleById from "./useFetchMiracleById.jsx";
 
 export default function Miracles() {
-    const { data: miracles, loading, error } = useFetchMiracles("/miracles");
+    const { data: miracles, loading, error } = useFetchMiracleById("/miracles");
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const useFetchMiracles = (url) => {
+const useFetchMiracleById = (url) => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -12,7 +12,7 @@ const useFetchMiracles = (url) => {
                 const response = await axios.get(url);
                 setData(response.data);
             } catch (error) {
-                setError("There was an error fetching the miracles");
+                setError("There was an error fetching the miracle");
                 console.error(error);
             }
             setLoading(false);
@@ -24,4 +24,4 @@ const useFetchMiracles = (url) => {
     return { data, loading, error };
 };
 
-export default useFetchMiracles;
+export default useFetchMiracleById;

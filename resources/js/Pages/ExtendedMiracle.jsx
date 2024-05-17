@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { usePage } from "@inertiajs/react";
 import Likes from "../Components/Likes";
-import useFetchMiracles from "../Components/useFetchMiraclesId";
+import useFetchMiracleById from "../Components/useFetchMiracleById";
 
 export default function ExtendedMiracle() {
     const { miracle, id } = usePage().props;
@@ -9,7 +9,7 @@ export default function ExtendedMiracle() {
         data: miracleData,
         loading,
         error,
-    } = useFetchMiracles(`/api/miracle/${id}`);
+    } = useFetchMiracleById(`/api/miracle/${id}`);
     const [isLiked, setIsLiked] = useState(false);
     const { auth } = usePage().props;
 
