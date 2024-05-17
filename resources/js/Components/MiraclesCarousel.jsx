@@ -17,7 +17,7 @@ export default function MiraclesCarousel() {
             }
         };
 
-        updateWidth(); // Initial call to set width
+        updateWidth();
         window.addEventListener("resize", updateWidth);
 
         return () => window.removeEventListener("resize", updateWidth);
@@ -46,19 +46,19 @@ export default function MiraclesCarousel() {
         return (
             <motion.div
                 key={miracle.id}
-                className="flex flex-col items-center justify-center mx-1 cursor-default overflow-x-auto"
+                className="flex flex-col items-center justify-center mx-1 cursor-default overflow-x-auto rounded-lg"
                 style={{ minWidth: `${itemWidth}px` }}
             >
-                <div className="w-72 h-96 overflow-hidden rounded-full flex items-center justify-center  cursor-pointer overflow-x-auto">
+                <div className="w-72 h-96 overflow-hidden flex items-center justify-center  cursor-pointer overflow-x-auto">
                     <div
-                        className="w-96 h-96 bg-cover bg-center"
+                        className="w-96 h-96 bg-cover bg-center rounded-xl"
                         style={{ backgroundImage: `url(${imageUrl})` }}
                     ></div>
                 </div>
                 <div className="mt-4 w-full text-center">
                     <a
                         href={`/extended/${miracle.id}`}
-                        className="text-3xl font-times"
+                        className="text-2xl font-times"
                     >
                         {changingSizeTitleMiracle}
                     </a>

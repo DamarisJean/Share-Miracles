@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { FaHeart } from "react-icons/fa";
-import axios from "axios"; // Ensure Axios is imported
+import axios from "axios";
+import { CiHeart } from "react-icons/ci";
 
 export default function Likes({ miracleId }) {
     const [isLiked, setIsLiked] = useState(false);
@@ -37,16 +37,18 @@ export default function Likes({ miracleId }) {
     };
 
     return (
-        <>
-            <div className="reaction">
-                <button
-                    className={`reaction-button ${isLiked ? "liked" : ""}`}
-                    onClick={toggleLikeStatus}
-                >
-                    <FaHeart />
-                </button>
-                <div className="reaction-count">{likesCount}</div>
+        <div className="reaction flex items-center">
+            <button
+                className={`reaction-button ${
+                    isLiked ? "text-red-500" : "text-black"
+                } focus:outline-none`}
+                onClick={toggleLikeStatus}
+            >
+                <CiHeart className="ml-2" size={28} />
+            </button>
+            <div className="reaction-count ml-2 mr-1 text-gray-700 text-xl">
+                {likesCount}
             </div>
-        </>
+        </div>
     );
 }

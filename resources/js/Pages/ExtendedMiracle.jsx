@@ -32,17 +32,29 @@ export default function ExtendedMiracle() {
     }
 
     return (
-        <div className="max-w-4xl mx-auto py-5 px-4 bg-white rounded-lg mt-6">
+        <div className="max-w-2xl mx-auto py-5 px-4 bg-white rounded-lg mt-24 mb-24 font-times">
             <div className="mb-4">
-                <h1 className="text-2xl font-light text-gray-800">
+                <h1 className="text-4xl font-bold text-gray-800">
                     {miracle.title}
                 </h1>
-                {miracle.user && (
-                    <p className="text-xs text-gray-400">
-                        Posted by {miracle.user.name} on{" "}
-                        {miracle.created_at?.substring(0, 10)}
-                    </p>
-                )}
+                <div className="flex items-center justify-between">
+                    {miracle.user && (
+                        <p className="text-2xl text-gray-400 mt-8">
+                            Posted by {miracle.user.name}{" "}
+                            {miracle.created_at?.substring(0, 10)}
+                        </p>
+                    )}
+                    {auth?.user && (
+                        <div className="mt-6 flex items-center">
+                            <Likes
+                                miracleId={miracle.id}
+                                isInitiallyLiked={isLiked}
+                                className="flex justify-between w-full"
+                            />
+                        </div>
+                    )}
+                </div>
+                <hr className="w-full my-4 bg-gray-300" />
             </div>
             {miracle.image && (
                 <div className="mb-4">
@@ -54,12 +66,10 @@ export default function ExtendedMiracle() {
                     />
                 </div>
             )}
-            <p className="text-gray-600 leading-relaxed">{miracle.content}</p>
-            {auth?.user && (
-                <div className="mt-6">
-                    <Likes miracleId={miracle.id} isInitiallyLiked={isLiked} />
-                </div>
-            )}
+            <div
+                className="text-xl leading-9"
+                dangerouslySetInnerHTML={{ __html: miracle.content }}
+            />
         </div>
     );
 }
