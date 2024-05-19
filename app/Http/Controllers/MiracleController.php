@@ -113,7 +113,7 @@ class MiracleController extends Controller
         return response()->json(['isLiked' => $isLiked]);
     }
 
-    // Get like info (combined status and count)
+    // Get like information (combined status and count)
     public function getLikeInfo(Request $request, $id)
     {
         $user = $request->user();

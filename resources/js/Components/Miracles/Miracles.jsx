@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "@inertiajs/react";
-import useFetchMiracleById from "./useFetchMiracleById.jsx";
+import useFetchMiracleById from "../Hooks/useFetchMiracleById.jsx";
 
 export default function Miracles() {
     const { data: miracles, loading, error } = useFetchMiracleById("/miracles");

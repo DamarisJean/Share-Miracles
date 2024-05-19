@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import useFetchMiracles from "../Components/useFetchMiracles";
+import useFetchMiracles from "../Hooks/useFetchMiracles";
 import { HiArrowLeft } from "react-icons/hi";
 import { HiArrowRight } from "react-icons/hi";
 import { Link } from "@inertiajs/react";

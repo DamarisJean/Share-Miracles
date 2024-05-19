@@ -1,6 +1,6 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
-import Miracles from "../Components/Miracles.jsx";
+import Miracles from "../Components/Miracles/Miracles.jsx";
 
 export default function Dashboard({ auth }) {
     return (

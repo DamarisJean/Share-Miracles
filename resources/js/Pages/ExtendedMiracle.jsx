@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { usePage } from "@inertiajs/react";
-import Likes from "../Components/Likes";
-import useFetchMiracleById from "../Components/useFetchMiracleById";
+import Likes from "../Components/Likes/Likes";
+import useFetchMiracleById from "../Components/Hooks/useFetchMiracleById";
 
 export default function ExtendedMiracle() {
     const { miracle, id } = usePage().props;

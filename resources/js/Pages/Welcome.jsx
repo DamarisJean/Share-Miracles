@@ -1,7 +1,8 @@
 import { Link, Head } from "@inertiajs/react";
-import ApplicationLogo from "@/Components/ApplicationLogo";
-import MiraclesCarousel from "../Components/MiraclesCarousel";
-import Footer from "../Components/Footer";
+import NavLink from "@/Components/Navigation/NavLink";
+import ApplicationLogo from "@/Components/Logo/ApplicationLogo";
+import MiraclesCarousel from "../Components/Carousel/MiraclesCarousel";
+import Footer from "../Components/Footer/Footer";
 
 export default function Welcome({ auth }) {
     return (
@@ -19,7 +20,7 @@ export default function Welcome({ auth }) {
                     <h2 className="text-6xl font-bold tracking-tight text-[#2a4047] sm:text-7xl">
                         Experience Miracles.
                         <br />
-                        Start writing today.
+                        Start Writing Today.
                     </h2>
 
                     <p className="mt-6 text-2xl leading-8 text-[#2a4047]">
@@ -33,14 +34,14 @@ export default function Welcome({ auth }) {
                                 href={route("dashboard")}
                                 className="inline-flex items-center px-6 py-3 bg-[#2a4047] border border-transparent rounded-md font-semibold text-sm text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150"
                             >
-                                Get started
+                                START HERE
                             </Link>
                         ) : (
                             <Link
                                 href={route("login")}
                                 className="inline-flex items-center px-6 py-3 bg-[#2a4047] border border-transparent rounded-md font-semibold text-sm text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150"
                             >
-                                Get started
+                                START HERE
                             </Link>
                         )}
                     </div>

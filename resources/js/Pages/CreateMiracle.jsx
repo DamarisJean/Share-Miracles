@@ -1,9 +1,9 @@
 import React, { useState, useRef } from "react";
 import axios from "axios";
-import Images from "../Components/Images";
+import Images from "../Components/Images/Images";
 import { GoPlus } from "react-icons/go";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import PrimaryButton from "@/Components/PrimaryButton";
+import PrimaryButton from "@/Components/Buttons/PrimaryButton";
 
 export default function CreateMiracle({ auth }) {
     const [title, setTitle] = useState("");
