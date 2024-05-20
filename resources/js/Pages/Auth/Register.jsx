@@ -29,7 +29,7 @@ export default function Register() {
     return (
         <GuestLayout>
             <h1 class="m-10 text-4xl font-black text-center text-[#2a4047]">
-                Welcome, join us!
+                Welcome, Join Us!
             </h1>
             <Head title="Register" />
             <form onSubmit={submit}>
@@ -102,17 +102,24 @@ export default function Register() {
                     />
                 </div>
 
-                <div className="flex items-center justify-end mt-4">
-                    <Link
-                        href={route("login")}
-                        className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    >
-                        Already registered?
-                    </Link>
-
-                    <PrimaryButton className="ms-4" disabled={processing}>
-                        Register
-                    </PrimaryButton>
+                <div className="flex flex-col items-end justify-end mt-4">
+                    <div>
+                        <PrimaryButton className="ms-4" disabled={processing}>
+                            Register
+                        </PrimaryButton>
+                    </div>
+                    <div className="flex flex-row mt-4">
+                        <div className="mr-4 mt-1">
+                            <spam className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                Already registered?
+                            </spam>
+                        </div>
+                        <div>
+                            <PrimaryButton>
+                                <Link href={route("login")}>Log in</Link>
+                            </PrimaryButton>
+                        </div>
+                    </div>
                 </div>
             </form>
         </GuestLayout>
