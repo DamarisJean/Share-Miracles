@@ -1,5 +1,7 @@
 import React from "react";
-import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa6";
+import { FaImagePortrait } from "react-icons/fa6";
 
 const Footer = () => {
     return (
@@ -12,7 +14,7 @@ const Footer = () => {
                         href="mailto:Miracles@gmail.com"
                         className="text-blue-300 hover:text-blue-500"
                     >
-                        Miracles@gmail.com
+                        ShareMiraclesWithUs@gmail.com
                     </a>
                 </div>
                 <div className="w-full md:w-1/2 lg:w-1/3 mb-6">
@@ -23,11 +25,7 @@ const Footer = () => {
                                 Home
                             </a>
                         </li>
-                        <li>
-                            <a href="/miracles" className="hover:text-gray-300">
-                                Miracles
-                            </a>
-                        </li>
+
                         <li>
                             <a href="/create" className="hover:text-gray-300">
                                 Create
@@ -48,14 +46,23 @@ const Footer = () => {
                 <div className="w-full md:w-1/2 lg:w-1/3 mb-6">
                     <h4 className="text-xl font-semibold mb-4">Follow Us</h4>
                     <div className="flex space-x-4">
-                        <a href="#" className="hover:text-gray-300">
-                            <FaFacebook size={24} />
+                        <a
+                            href="https://github.com/DamarisJean"
+                            className="hover:text-gray-300"
+                        >
+                            <FaGithub size={24} />
                         </a>
-                        <a href="#" className="hover:text-gray-300">
-                            <FaTwitter size={24} />
+                        <a
+                            href="https://www.linkedin.com/in/damaris-jjm/"
+                            className="hover:text-gray-300"
+                        >
+                            <FaLinkedin size={24} />
                         </a>
-                        <a href="#" className="hover:text-gray-300">
-                            <FaInstagram size={24} />
+                        <a
+                            href="https://damarisjean.github.io/PortfolioDamaris/"
+                            className="hover:text-gray-300"
+                        >
+                            <FaImagePortrait size={24} />
                         </a>
                     </div>
                 </div>

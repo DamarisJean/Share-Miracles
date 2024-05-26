@@ -20,16 +20,21 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+//Route to Dashboard logged in users
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-
-
+// Route to CreateMiracle verified users
 Route::get('/create', function () {
     return Inertia::render('CreateMiracle');
 })->middleware(['auth', 'verified'])->name('create');
 
+// Route About Us page in footer without auth.
+Route::get('/about', function () {
+    return Inertia::render("About");
+});
 
 Route::get('/miracles', [MiracleController::class, 'index']);
 Route::post('/miracles', [MiracleController::class, 'store']);

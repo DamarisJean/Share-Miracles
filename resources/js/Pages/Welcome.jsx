@@ -7,7 +7,6 @@ export default function Welcome({ auth }) {
     return (
         <>
             <Head title="Welcome" />
-
             <div className="relative h-screen flex flex-col justify-between overflow-hidden">
                 <div
                     className="absolute inset-0 bg-cover bg-center"
@@ -19,16 +18,16 @@ export default function Welcome({ auth }) {
                     <Link href="/">
                         <ApplicationLogo className="h-60 mb-5" />
                     </Link>
-                    <h2 className="text-6xl font-bold tracking-tight text-[#2a4047] sm:text-7xl ">
+                    <h2 className="text-6xl font-bold tracking-tight text-[#2a4047] sm:text-7xl">
                         Start Writing Today.
                         <br />
                         Experience Miracles.
                     </h2>
 
-                    <p className="mt-6  text-2xl leading-8 text-[#2a4047]">
-                        Light finds its way to our hearts every day,
-                        <strong> Read the stories</strong> of others and
-                        <strong> Share your own.</strong>
+                    <p className="mt-6 text-2xl leading-8 text-[#2a4047]">
+                        Light finds its way to our hearts every day,{" "}
+                        <strong>Read the stories</strong> of others and{" "}
+                        <strong>Share your own.</strong>
                     </p>
                     <div className="flex flex-row gap-32 mt-20">
                         <div className="text-[#ffffff] px-32 py-4 rounded-full tracking-widest uppercase font-bold bg-[#2a4047] hover:text-[#ffffff] dark:text-[#ffffff] transition duration-200 transform hover:scale-110">
@@ -37,7 +36,7 @@ export default function Welcome({ auth }) {
                                     START READING HERE
                                 </Link>
                             ) : (
-                                <Link href={route("register")}>
+                                <Link href={route("login")}>
                                     START READING HERE
                                 </Link>
                             )}

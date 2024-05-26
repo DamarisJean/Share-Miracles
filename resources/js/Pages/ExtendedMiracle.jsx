@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { usePage } from "@inertiajs/react";
 import Likes from "../Components/Likes/Likes";
 import useFetchMiracleById from "../Components/Hooks/useFetchMiracleById";
+import { RxCross2 } from "react-icons/rx";
 
 export default function ExtendedMiracle() {
     const { miracle, id } = usePage().props;
@@ -34,6 +35,9 @@ export default function ExtendedMiracle() {
     return (
         <div className="max-w-2xl mx-auto py-5 px-4 bg-white rounded-lg mt-24 mb-24 font-times">
             <div className="mb-4">
+                <div className="cursor-pointer mb-14 text-3xl">
+                    <RxCross2 onClick={() => window.history.back()} />
+                </div>
                 <h1 className="text-4xl font-bold text-gray-800">
                     {miracle.title}
                 </h1>

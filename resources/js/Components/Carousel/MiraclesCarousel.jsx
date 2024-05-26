@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import useFetchMiracles from "../Hooks/useFetchMiracles";
-import { HiArrowLeft } from "react-icons/hi";
-import { HiArrowRight } from "react-icons/hi";
-import { Link } from "@inertiajs/react";
+import MiracleItem from "./MiracleItem";
+import CarouselNavigation from "./CarouselNavigation";
+import CallToActionSection from "./CallToActionSection";
 
 export default function MiraclesCarousel() {
     const miracles = useFetchMiracles();
@@ -24,7 +24,7 @@ export default function MiraclesCarousel() {
         return () => window.removeEventListener("resize", updateWidth);
     }, []);
 
-    const itemWidth = carouselWidth / 4; // number of miracles displayed
+    const itemWidth = carouselWidth / 3.4;
     const maxScroll = -(miracles.length * itemWidth - carouselWidth);
 
     const handleNext = () => {
@@ -35,75 +35,40 @@ export default function MiraclesCarousel() {
         setScrollPosition((prev) => Math.min(prev + itemWidth, 0));
     };
 
-    const renderMiracleItem = (miracle) => {
-        const imageUrl = miracle.image
-            ? miracle.image.path
-            : "images/default.jpg";
-
-        return (
-            <motion.div
-                key={miracle.id}
-                className="flex flex-col items-center justify-center mx-1 cursor-default overflow-x-auto rounded-lg"
-                style={{ minWidth: `${itemWidth}px` }}
-            >
-                <Link
-                    href={route("extended.show", { id: miracle.id })}
-                    className="w-72 h-96 overflow-hidden flex items-center justify-center cursor-pointer"
-                >
-                    <div
-                        className="w-96 h-96 bg-cover bg-center rounded-xl"
-                        style={{ backgroundImage: `url(${imageUrl})` }}
-                    ></div>
-                </Link>
-                <div className="mt-4 w-full text-center">
-                    <Link
-                        href={route("extended.show", { id: miracle.id })}
-                        className="text-2xl font-times"
-                    >
-                        {miracle.title}
-                    </Link>
-                </div>
-            </motion.div>
-        );
-    };
-
     return (
-        <div className="w-full flex flex-col justify-center items-center bg-[#DFDAD6] h-[calc(100vh)]">
-            <div className="text-center w-full mb-10">
-                <h4 className="text-4xl font-bold tracking-tight text-[#2a4047] sm:text-5xl mt-8">
+        <div className="w-full flex flex-col justify-center items-center bg-[#DFDAD6]">
+            <div className="text-center w-full mb-6">
+                <h4 className="mb-12  text-4xl font-bold tracking-tight text-[#2a4047] sm:text-5xl">
                     Read and Explore other Stories
                 </h4>
+                <p></p>
             </div>
             <motion.div
                 ref={carousel}
-                className="w-full overflow-hidden relative"
+                className="w-full overflow-hidden relative h-auto pl-8"
             >
                 <motion.div
                     drag="x"
-                    dragConstraints={{
-                        right: 0,
-                        left: maxScroll,
-                    }}
+                    dragConstraints={{ right: 0, left: maxScroll }}
                     animate={{ x: scrollPosition }}
-                    className="flex"
+                    className="flex space-x-12"
                 >
-                    {miracles.map(renderMiracleItem)}
+                    {miracles.map((miracle, index) => (
+                        <MiracleItem
+                            key={miracle.id}
+                            miracle={miracle}
+                            itemWidth={itemWidth}
+                            isFirst={index === 0}
+                        />
+                    ))}
                 </motion.div>
             </motion.div>
-            <div className="flex justify-center items-center mt-8 mb-8 cursor-pointer">
-                <button
-                    onClick={handlePrev}
-                    className="text-[#2a4047] p-2 mx-2 text-4xl"
-                >
-                    <HiArrowLeft />
-                </button>
-                <button
-                    onClick={handleNext}
-                    className="text-[#2a4047] p-2 mx-2 text-4xl"
-                >
-                    <HiArrowRight />
-                </button>
-            </div>
+
+            <CarouselNavigation
+                handlePrev={handlePrev}
+                handleNext={handleNext}
+            />
+            <CallToActionSection />
         </div>
     );
 }
