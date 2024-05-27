@@ -19,7 +19,7 @@ export default function Welcome({ auth }) {
                         <ApplicationLogo className="h-40 sm:h-60" />
                     </Link>
                     <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-[#2a4047]">
-                        Experience Miracles.
+                        Experience Miracles &
                         <br />
                         Start Writing Today.
                     </h2>
