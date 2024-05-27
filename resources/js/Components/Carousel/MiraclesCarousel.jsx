@@ -24,7 +24,16 @@ export default function MiraclesCarousel() {
         return () => window.removeEventListener("resize", updateWidth);
     }, []);
 
-    const itemWidth = carouselWidth / 3.4;
+    const getItemWidth = () => {
+        if (window.innerWidth < 640) {
+            // Mobile screen
+            return carouselWidth * 0.8;
+        } else {
+            return carouselWidth / 3.4;
+        }
+    };
+
+    const itemWidth = getItemWidth();
     const maxScroll = -(miracles.length * itemWidth - carouselWidth);
 
     const handleNext = () => {
@@ -38,7 +47,7 @@ export default function MiraclesCarousel() {
     return (
         <div className="w-full flex flex-col justify-center items-center bg-[#DFDAD6]">
             <div className="text-center w-full mb-6">
-                <h4 className="mb-12  text-4xl font-bold tracking-tight text-[#2a4047] sm:text-5xl">
+                <h4 className="mb-12 text-4xl font-bold tracking-tight text-[#2a4047] sm:text-5xl">
                     Read and Explore other Stories
                 </h4>
                 <p></p>

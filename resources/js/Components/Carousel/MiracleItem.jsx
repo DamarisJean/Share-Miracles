@@ -1,4 +1,3 @@
-// components/Carousel/MiracleItem.jsx
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "@inertiajs/react";
@@ -7,7 +6,7 @@ const MiracleItem = ({ miracle, itemWidth }) => {
     const imageUrl = miracle.image ? miracle.image.path : "images/default.jpg";
     const maxTitleLength = 20;
 
-    const lenghtTitle = (title) => {
+    const lengthTitle = (title) => {
         return title.length > maxTitleLength
             ? `${title.substring(0, maxTitleLength)}...`
             : title;
@@ -21,7 +20,7 @@ const MiracleItem = ({ miracle, itemWidth }) => {
         >
             <Link
                 href={route("extended.show", { id: miracle.id })}
-                className="w-full h-72 overflow-hidden flex items-center justify-center cursor-pointer"
+                className="w-full h-48 md:h-76 overflow-hidden flex items-center justify-center cursor-pointer"
             >
                 <div
                     className="w-full h-full bg-cover bg-center rounded-xl"
@@ -31,9 +30,9 @@ const MiracleItem = ({ miracle, itemWidth }) => {
             <div className="mt-4 w-full text-center px-2">
                 <Link
                     href={route("extended.show", { id: miracle.id })}
-                    className="text-2xl font-times"
+                    className="text-xl md:text-2xl font-times"
                 >
-                    {lenghtTitle(miracle.title)}
+                    {lengthTitle(miracle.title)}
                 </Link>
             </div>
         </motion.div>
