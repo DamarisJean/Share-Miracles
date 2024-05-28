@@ -37,16 +37,16 @@ export default function Likes({ miracleId }) {
     };
 
     return (
-        <div className="reaction flex items-center">
+        <div className=" reaction flex items-center">
             <button
-                className={`reaction-button ${
+                className={` reaction-button ${
                     isLiked ? "text-red-500" : "text-black"
                 } focus:outline-none`}
                 onClick={toggleLikeStatus}
             >
-                <CiHeart className="ml-2" size={28} />
+                <CiHeart className="h-4 w-4 sm:w-6 sm:h-6  ml-2" />
             </button>
-            <div className="reaction-count ml-2 mr-1 text-gray-700 text-xl">
+            <div className="reaction-count ml-2 mr-1 text-gray-600 text-l">
                 {likesCount}
             </div>
         </div>
