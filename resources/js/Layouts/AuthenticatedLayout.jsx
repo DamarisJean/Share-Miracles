@@ -26,7 +26,7 @@ export default function AuthenticatedLayout({ user, header, children }) {
                                     href={route("dashboard")}
                                     active={route().current("dashboard")}
                                 >
-                                    MRACLES LIST
+                                    MIRACLES LIST
                                 </NavLink>
                                 <NavLink
                                     href={route("create")}

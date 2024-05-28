@@ -4,6 +4,7 @@ import Images from "../Components/Images/Images";
 import { GoPlus } from "react-icons/go";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import PrimaryButton from "@/Components/Buttons/PrimaryButton";
+import { CiCircleCheck } from "react-icons/ci";
 
 export default function CreateMiracle({ auth }) {
     const [title, setTitle] = useState("");
@@ -11,6 +12,8 @@ export default function CreateMiracle({ auth }) {
     const textAreaRef = useRef(null);
     const [selectedImage, setSelectedImage] = useState(null);
     const [showImageSelector, setShowImageSelector] = useState(false);
+    const [showPopup, setShowPopup] = useState(false);
+    const [popupMessage, setPopupMessage] = useState("");
 
     const handleContentChange = (e) => {
         setContent(e.target.value);
@@ -31,6 +34,15 @@ export default function CreateMiracle({ auth }) {
             setContent("");
             setSelectedImage(null);
             textAreaRef.current.style.height = "inherit";
+
+            // Show the popup message
+            setPopupMessage("Published");
+            setShowPopup(true);
+
+            // Hide the popup message after 3 seconds
+            setTimeout(() => {
+                setShowPopup(false);
+            }, 3000);
         } catch (error) {
             console.error("Error posting the miracle:", error);
         }
@@ -58,6 +70,12 @@ export default function CreateMiracle({ auth }) {
                                 </button>
                             )}
                             <PrimaryButton type="submit">Publish</PrimaryButton>
+                            {showPopup && (
+                                <div className="ml-4 text-[#5DAB61] font-bold flex flex-row gap-1">
+                                    {popupMessage}
+                                    <CiCircleCheck className="mt-0.2 text-2xl" />
+                                </div>
+                            )}
                         </div>
                         {selectedImage && (
                             <div
