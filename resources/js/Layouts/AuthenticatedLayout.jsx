@@ -26,7 +26,7 @@ export default function AuthenticatedLayout({ user, header, children }) {
                                     href={route("dashboard")}
                                     active={route().current("dashboard")}
                                 >
-                                    READ MRIACLES
+                                    MRACLES LIST
                                 </NavLink>
                                 <NavLink
                                     href={route("create")}
@@ -136,13 +136,13 @@ export default function AuthenticatedLayout({ user, header, children }) {
                             href={route("dashboard")}
                             active={route().current("dashboard")}
                         >
-                            Dashboard
+                            MIRACLES LIST
                         </ResponsiveNavLink>
                         <ResponsiveNavLink
                             href={route("create")}
                             active={route().current("create")}
                         >
-                            Create
+                            CREATE MIRACLE
                         </ResponsiveNavLink>
                     </div>
 

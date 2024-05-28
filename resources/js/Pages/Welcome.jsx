@@ -25,8 +25,8 @@ export default function Welcome({ auth }) {
                     </h2>
 
                     <p className="mt-6 text-lg sm:text-2xl leading-8 text-[#2a4047]">
-                        Light finds its way to our hearts every day,
-                        <strong>Read the stories</strong> of others and
+                        Light finds its way to our hearts every day{" "}
+                        <strong>Read the stories</strong> of others and{" "}
                         <strong>Share your own.</strong>
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 sm:gap-32 mt-20 sm:mt-20">
