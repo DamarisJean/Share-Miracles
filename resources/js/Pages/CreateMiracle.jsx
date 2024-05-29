@@ -42,7 +42,7 @@ export default function CreateMiracle({ auth }) {
             // Hide the popup message after 3 seconds
             setTimeout(() => {
                 setShowPopup(false);
-            }, 3000);
+            }, 9000);
         } catch (error) {
             console.error("Error posting the miracle:", error);
         }

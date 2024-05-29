@@ -9,7 +9,7 @@ export default function Miracles() {
     if (error) return <div>Error: {error}</div>;
 
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto flex justify-center ">
             <div className="grid gap-6 font-times">
                 {miracles.map((miracle) => (
                     <div
