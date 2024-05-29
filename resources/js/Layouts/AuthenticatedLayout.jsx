@@ -34,6 +34,10 @@ export default function AuthenticatedLayout({ user, header, children }) {
                                 >
                                     CREATE MIRACLE
                                 </NavLink>
+                                <NavLink
+                                    href="/extended/{id}"
+                                    active={route().current("/extended/{id}")}
+                                ></NavLink>
                             </div>
                         </div>
 

@@ -36,6 +36,7 @@ Route::get('/about', function () {
     return Inertia::render("About");
 });
 
+
 Route::get('/miracles', [MiracleController::class, 'index']);
 Route::post('/miracles', [MiracleController::class, 'store']);
 Route::get('/extended/{id}', [MiracleController::class, 'show'])->name('extended.show');

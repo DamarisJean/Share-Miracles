@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import useFetchMiracleById from "../Hooks/useFetchMiracleById.jsx";
 
 export default function Miracles() {
@@ -9,28 +9,26 @@ export default function Miracles() {
     if (error) return <div>Error: {error}</div>;
 
     return (
-        <div className="container mx-auto flex justify-center ">
+        <div className="container mx-auto flex justify-center">
             <div className="grid gap-6 font-times">
                 {miracles.map((miracle) => (
                     <div
                         key={miracle.id}
-                        className="flex flex-row sm:w-4/5 items-center border-b border-b-gray-200 pb-10"
+                        className="flex flex-row sm:w-4/5 items-center border-b border-b-gray-200 pb-10 cursor-pointer"
                     >
-                        <div className="bg-white flex-1 md:w-auto">
-                            <Link
-                                href={route("extended.show", {
-                                    id: miracle.id,
-                                })}
-                                className="block"
-                            >
+                        <Link
+                            href={route("extended.show", { id: miracle.id })}
+                            className="flex-1 md:w-auto"
+                        >
+                            <div className="bg-white">
                                 <h2 className="text-xl font-semibold mb-2">
                                     {miracle.title}
                                 </h2>
                                 <p className="text-gray-700 text-xs md:text-base">
                                     {miracle.content.substring(0, 200)}...
                                 </p>
-                            </Link>
-                        </div>
+                            </div>
+                        </Link>
                         {miracle.image?.path && (
                             <img
                                 src={miracle.image.path}
