@@ -26,7 +26,6 @@ export default function MiraclesCarousel() {
 
     const getItemWidth = () => {
         if (window.innerWidth < 640) {
-            // Mobile screen
             return carouselWidth * 0.8;
         } else {
             return carouselWidth / 3.4;
@@ -45,16 +44,16 @@ export default function MiraclesCarousel() {
     };
 
     return (
-        <div className="w-full flex flex-col justify-center items-center bg-[#DFDAD6]">
+        <div className="w-full flex flex-col justify-center items-center bg-[#DFDAD6] ">
             <div className="text-center w-full mb-6">
-                <h4 className="mb-12 text-4xl font-bold tracking-tight text-[#2a4047] sm:text-5xl">
+                <h4 className=" px-8 text-4xl font-bold tracking-tight text-[#2a4047] sm:text-5xl py-20">
                     Read and Explore other Stories
                 </h4>
                 <p></p>
             </div>
             <motion.div
                 ref={carousel}
-                className="w-full overflow-hidden relative h-auto pl-8"
+                className="w-full overflow-hidden relative h-auto pl-8 pt-18"
             >
                 <motion.div
                     drag="x"

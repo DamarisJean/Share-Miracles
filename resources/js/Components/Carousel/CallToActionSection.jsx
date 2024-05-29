@@ -3,8 +3,8 @@ import { Link } from "@inertiajs/react";
 
 const CallToActionSection = () => {
     return (
-        <div className="text-center w-full mt-12">
-            <h1 className="mb-12 text-4xl font-bold tracking-tight text-[#2a4047] sm:text-5xl">
+        <div className="text-center w-full py-20">
+            <h1 className="text-4xl font-bold tracking-tight text-[#2a4047] sm:text-5xl py-18">
                 Don't Forget To Share Your Own
             </h1>
             <Link

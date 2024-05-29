@@ -3,7 +3,7 @@ import { HiArrowLeft, HiArrowRight } from "react-icons/hi";
 
 const CarouselNavigation = ({ handlePrev, handleNext }) => {
     return (
-        <div className="w-full flex justify-center items-center my-4 cursor-pointer mt-24 sm:mt-32">
+        <div className="w-full flex justify-center items-center my-4 cursor-pointer py-12">
             <button
                 onClick={handlePrev}
                 className="text-[#2a4047] p-2 mx-2 text-4xl"
