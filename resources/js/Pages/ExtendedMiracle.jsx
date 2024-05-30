@@ -29,16 +29,16 @@ export default function ExtendedMiracle() {
     }
 
     if (error) {
-        return <div className="text-red-500 text-center mt-4">{error}</div>;
+        return <div className="text-center mt-4">{error}</div>;
     }
 
     return (
         <AuthenticatedLayout user={auth.user}>
             <div className="max-w-2xl mx-auto py-5 px-4 bg-white rounded-lg mb-24 font-times">
                 <div className="mb-4 sm:p-0 p-6">
-                    <div className=" flex items-center justify-between">
+                    <div className=" flex items-center justify-between mb-4">
                         {miracle.user && (
-                            <p className="text-l sm:text-xl text-gray-400 mt-8">
+                            <p className="text-l text-gray-400 mt-8">
                                 Posted by {miracle.user.name}{" "}
                                 {miracle.created_at?.substring(0, 10)}
                             </p>

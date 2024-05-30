@@ -1,16 +1,19 @@
 import { Link, Head } from "@inertiajs/react";
 import ApplicationLogo from "@/Components/Logo/ApplicationLogo";
 import MiraclesCarousel from "../Components/Carousel/MiraclesCarousel";
-import Footer from "../Components/Footer/Footer";
+import Footer from "@/Components/Footer/Footer";
 
 export default function Welcome({ auth }) {
     return (
         <>
             <Head title="Welcome" />
+
             <div className="relative flex flex-col justify-between min-h-screen overflow-hidden">
                 <div
                     className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: "url(/images/background2.jpg)" }}
+                    style={{
+                        backgroundImage: "url(/images/background2.jpg)",
+                    }}
                 >
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#DFDAD6]"></div>
                 </div>

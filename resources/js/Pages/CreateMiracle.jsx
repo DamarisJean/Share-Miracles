@@ -42,7 +42,7 @@ export default function CreateMiracle({ auth }) {
             // Hide the popup message after 3 seconds
             setTimeout(() => {
                 setShowPopup(false);
-            }, 9000);
+            }, 3000);
         } catch (error) {
             console.error("Error posting the miracle:", error);
         }
@@ -54,58 +54,55 @@ export default function CreateMiracle({ auth }) {
 
     return (
         <AuthenticatedLayout user={auth.user}>
-            <div className="max-w-4xl mx-auto p-6">
-                <form onSubmit={handleSubmit} className="space-y-8">
-                    <div className="space-y-4">
-                        <div className="flex items-center space-x-4">
-                            {!selectedImage && (
-                                <button
-                                    className="select-image p-3 w-12 h-12 bg-gray-100 flex items-center justify-center rounded-full hover:bg-gray-200 transition duration-150 ease-in-out"
-                                    type="button"
-                                    onClick={() =>
-                                        setShowImageSelector(!showImageSelector)
-                                    }
-                                >
-                                    <GoPlus size={24} color="#4A5568" />
-                                </button>
-                            )}
-                            <PrimaryButton type="submit">Publish</PrimaryButton>
-                            {showPopup && (
-                                <div className="ml-4 text-[#5DAB61] font-bold flex flex-row gap-1">
-                                    {popupMessage}
-                                    <CiCircleCheck className="mt-0.2 text-2xl" />
-                                </div>
-                            )}
-                        </div>
-                        {selectedImage && (
-                            <div
-                                className="selected-image-preview w-full h-48 bg-cover bg-center rounded cursor-pointer"
-                                style={{
-                                    backgroundImage: `url(${selectedImage.path})`,
-                                }}
-                                onClick={handleImageClick}
-                            />
+            <div className="min-h-screen flex flex-col items-center justify-start pt-8">
+                <div className="space-y-8">
+                    <div className="flex items-center gap-8">
+                        {!selectedImage && (
+                            <button
+                                className="select-image p-3 w-12 h-12 bg-gray-100 flex items-center justify-center rounded-full hover:bg-gray-200 transition duration-150 ease-in-out"
+                                type="button"
+                                onClick={() =>
+                                    setShowImageSelector(!showImageSelector)
+                                }
+                            >
+                                <GoPlus size={24} color="#4A5568" />
+                            </button>
+                        )}
+                        <PrimaryButton type="submit" onClick={handleSubmit}>
+                            Publish
+                        </PrimaryButton>
+                        {showPopup && (
+                            <div className="text-[#5DAB61] font-bold flex flex-row gap-1">
+                                {popupMessage}
+                                <CiCircleCheck className="mt-0.2 text-2xl" />
+                            </div>
                         )}
                     </div>
-                    <div>
-                        <textarea
-                            id="titleInput"
-                            className="w-full text-3xl font-times text-gray-800 bg-transparent border-none focus:border-none focus:ring-0 resize-none"
-                            value={title}
-                            onChange={(e) => setTitle(e.target.value)}
-                            placeholder="Title"
+                    {selectedImage && (
+                        <div
+                            className="selected-image-preview w-full h-48 bg-cover bg-center rounded cursor-pointer"
+                            style={{
+                                backgroundImage: `url(${selectedImage.path})`,
+                            }}
+                            onClick={handleImageClick}
                         />
-                        <textarea
-                            id="contentInput"
-                            className="w-full mt-1 text-lg font-times text-gray-800 bg-transparent border-none focus:border-none focus:ring-0 resize-none"
-                            value={content}
-                            onChange={handleContentChange}
-                            placeholder="What's your miracle?"
-                            ref={textAreaRef}
-                        />
-                    </div>
-                </form>
-
+                    )}
+                    <textarea
+                        id="titleInput"
+                        className="w-full text-3xl font-times text-gray-800 bg-transparent border-none focus:border-none focus:ring-0 resize-none"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        placeholder="Title"
+                    />
+                    <textarea
+                        id="contentInput"
+                        className="w-full mt-1 text-lg font-times text-gray-800 bg-transparent border-none focus:border-none focus:ring-0 resize-none"
+                        value={content}
+                        onChange={handleContentChange}
+                        placeholder="What's your miracle?"
+                        ref={textAreaRef}
+                    />
+                </div>
                 {showImageSelector && (
                     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
                         <div
