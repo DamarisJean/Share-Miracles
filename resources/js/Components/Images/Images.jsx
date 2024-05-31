@@ -26,20 +26,19 @@ export default function Images({ onImageSelect }) {
     };
 
     return (
-        <div className=" p-5 h-full overflow-y-auto">
+        <div className="p-5 h-full overflow-y-auto">
             {showNoBackgroundOption && (
                 <div className="flex justify-between items-center">
                     <button
-                        className="text-white "
+                        className="text-white text-2xl"
                         onClick={handleNoImageClick}
                         title="Select no image"
-                        style={{ fontSize: "24px" }}
                     >
-                        <MdOutlineImageNotSupported size={36} />
+                        <MdOutlineImageNotSupported className="w-9 h-9" />
                     </button>
                 </div>
             )}
-            <div className="grid grid-cols-3 gap-4 mt-4 border-r-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-4">
                 {images.map((image) => (
                     <button
                         key={image.id}
@@ -49,7 +48,7 @@ export default function Images({ onImageSelect }) {
                         <img
                             src={image.path}
                             alt={image.name}
-                            className="w-full h-48 object-cover"
+                            className="w-full h-48 object-cover rounded-lg"
                         />
                         <p className="text-gray-700 text-center mt-2">
                             {image.name}
