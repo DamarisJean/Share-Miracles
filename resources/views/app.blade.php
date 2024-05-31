@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title inertia>{{ config('app.name', 'Share Miracles') }}</title>
-        <link rel="icon" href="{{ asset('images/SMBIG.png') }}" />
+        <link rel="icon" href="{{ asset('images/MFavi.png') }}" />
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

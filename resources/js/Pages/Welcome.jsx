@@ -19,7 +19,7 @@ export default function Welcome({ auth }) {
                 </div>
                 <div className="relative flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 pt-12">
                     <Link href="/">
-                        <ApplicationLogo className="h-20 sm:h-32 lg:h-32" />
+                        <ApplicationLogo className="h-40 sm:h-48 p-10" />
                     </Link>
                     <div className="mt-8 sm:mt-12">
                         <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold tracking-tight text-[#2a4047]">

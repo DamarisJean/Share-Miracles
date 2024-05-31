@@ -16,9 +16,9 @@ export default function AuthenticatedLayout({ user, header, children }) {
                 <div className="mx-auto">
                     <div className="flex justify-between h-16">
                         <div className="flex">
-                            <div className="flex items-center mr-8">
+                            <div className="flex items-center mr-24">
                                 <Link href="/">
-                                    <ApplicationLogo className="sm:ml-0 ml-[-1.5rem] h-24" />
+                                    <ApplicationLogo className="sm:ml-8 ml-8 h-9" />
                                 </Link>
                             </div>
                             <div className="hidden space-x-8 sm:flex sm:ml-10">
