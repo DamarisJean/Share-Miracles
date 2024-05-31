@@ -60,15 +60,15 @@ export default function ExtendedMiracle() {
                         <img
                             src={miracle.image.path}
                             alt={miracle.title}
-                            className="sm:w-full sm:p-0 p-10 rounded-sm object-cover h-300"
+                            className="sm:w-full p-10 rounded-sm object-cover h-300"
                         />
                     </div>
                 )}
-                <h1 className="text-3xl sm:text-4xl ml-5 sm:ml-0 sm:mb-6 sm:mt-12 font-bold text-gray-800">
+                <h1 className="text-2xl sm:text-3xl ml-5 sm:ml-0 sm:mb-6 sm:mt-12 font-bold text-gray-800">
                     {miracle.title}
                 </h1>
                 <div
-                    className="text-sm sm:text-xl sm:p-0 p-6 leading-9"
+                    className="text-sm sm:text-lg  sm:p-0 p-6 leading-9"
                     dangerouslySetInnerHTML={{ __html: miracle.content }}
                 />
             </div>

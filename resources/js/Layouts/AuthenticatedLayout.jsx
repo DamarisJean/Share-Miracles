@@ -13,12 +13,12 @@ export default function AuthenticatedLayout({ user, header, children }) {
     return (
         <div className="min-h-screen bg-white">
             <nav className="bg-white border-b">
-                <div className="mx-auto px-4 lg:px-8">
+                <div className="mx-auto">
                     <div className="flex justify-between h-16">
                         <div className="flex">
-                            <div className="flex items-center shrink-0 h-25">
+                            <div className="flex items-center mr-8">
                                 <Link href="/">
-                                    <ApplicationLogo className="h-20 fill-current" />
+                                    <ApplicationLogo className="sm:ml-0 ml-[-1.5rem] h-24" />
                                 </Link>
                             </div>
                             <div className="hidden space-x-8 sm:flex sm:ml-10">
@@ -44,10 +44,10 @@ export default function AuthenticatedLayout({ user, header, children }) {
                             <div className="relative ml-3">
                                 <Dropdown>
                                     <Dropdown.Trigger>
-                                        <span className="inline-flex rounded-md">
+                                        <span className="inline-flex rounded-md mr-10">
                                             <button
                                                 type="button"
-                                                className="inline-flex items-center px-3 py-2 border border-transparent text-sm font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
+                                                className=" inline-flex items-center px-3 py-2 border border-transparent text-sm font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
                                             >
                                                 {user.name}
                                                 <svg
@@ -82,7 +82,7 @@ export default function AuthenticatedLayout({ user, header, children }) {
                                 </Dropdown>
                             </div>
                         </div>
-                        <div className="flex items-center sm:hidden -mr-2">
+                        <div className="flex items-center sm:hidden mr-4">
                             <button
                                 onClick={() =>
                                     setShowingNavigationDropdown(

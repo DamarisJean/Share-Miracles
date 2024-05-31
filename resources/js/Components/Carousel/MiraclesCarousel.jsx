@@ -45,7 +45,7 @@ export default function MiraclesCarousel({ auth }) {
 
     return (
         <div className="w-full flex flex-col justify-center items-center bg-[#DFDAD6] ">
-            <div className="text-center w-full mb-6">
+            <div className="text-center w-full mb-6 mt-20">
                 <h4 className=" px-8 text-4xl font-bold tracking-tight text-[#2a4047] sm:text-5xl py-20">
                     Read and Explore other Stories
                 </h4>

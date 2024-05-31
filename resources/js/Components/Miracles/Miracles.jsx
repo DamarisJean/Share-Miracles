@@ -11,8 +11,8 @@ export default function Miracles() {
     if (error) return <div>Error: {error}</div>;
 
     return (
-        <div className="container mx-auto flex justify-center">
-            <div className="grid gap-6 font-times">
+        <div className="container mx-auto flex justify-center sm:ml-20">
+            <div className="grid gap-8 font-times">
                 {miracles.map((miracle) => (
                     <div
                         key={miracle.id}

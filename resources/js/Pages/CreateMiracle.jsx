@@ -1,7 +1,8 @@
 import React, { useState, useRef } from "react";
 import axios from "axios";
 import Images from "../Components/Images/Images";
-import { GoPlus } from "react-icons/go";
+import { CiImageOn } from "react-icons/ci";
+
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import PrimaryButton from "@/Components/Buttons/PrimaryButton";
 import { CiCircleCheck } from "react-icons/ci";
@@ -55,7 +56,7 @@ export default function CreateMiracle({ auth }) {
     return (
         <AuthenticatedLayout user={auth.user}>
             <div className="min-h-screen flex flex-col items-center justify-start pt-8">
-                <div className="space-y-8">
+                <div className="space-y-8 px-12">
                     <div className="flex items-center gap-8">
                         {!selectedImage && (
                             <button
@@ -65,7 +66,7 @@ export default function CreateMiracle({ auth }) {
                                     setShowImageSelector(!showImageSelector)
                                 }
                             >
-                                <GoPlus size={24} color="#4A5568" />
+                                <CiImageOn size={24} color="#4A5568" />
                             </button>
                         )}
                         <PrimaryButton type="submit" onClick={handleSubmit}>
