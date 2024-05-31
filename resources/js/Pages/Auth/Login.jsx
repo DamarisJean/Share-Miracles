@@ -27,7 +27,7 @@ export default function Login({ status, canResetPassword }) {
     return (
         <GuestLayout>
             <Head title="Log in" />
-            <h1 class="m-10 text-4xl font-black text-center text-[#2a4047]">
+            <h1 class="m-4 text-4xl font-black text-center text-[#2a4047]">
                 Welcome back!
             </h1>
 

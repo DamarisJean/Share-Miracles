@@ -17,9 +17,9 @@ export default function Welcome({ auth }) {
                 >
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#DFDAD6]"></div>
                 </div>
-                <div className="relative flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 pt-8">
+                <div className="relative flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 pt-12">
                     <Link href="/">
-                        <ApplicationLogo className="h-32 sm:h-40 lg:h-60" />
+                        <ApplicationLogo className="h-20 sm:h-32 lg:h-32" />
                     </Link>
                     <div className="mt-8 sm:mt-12">
                         <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold tracking-tight text-[#2a4047]">
