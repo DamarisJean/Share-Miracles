@@ -5,7 +5,7 @@ import MiracleItem from "./MiracleItem";
 import CarouselNavigation from "./CarouselNavigation";
 import CallToActionSection from "./CallToActionSection";
 
-export default function MiraclesCarousel() {
+export default function MiraclesCarousel({ auth }) {
     const miracles = useFetchMiracles();
     const carousel = useRef(null);
     const [carouselWidth, setCarouselWidth] = useState(0);

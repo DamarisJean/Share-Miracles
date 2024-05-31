@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "@inertiajs/react";
 
-const MiracleItem = ({ miracle, itemWidth }) => {
+const MiracleItem = ({ miracle, itemWidth, auth }) => {
     const imageUrl = miracle.image ? miracle.image.path : "images/default.jpg";
     const maxTitleLength = 20;
 
@@ -19,7 +19,11 @@ const MiracleItem = ({ miracle, itemWidth }) => {
             style={{ minWidth: `${itemWidth}px` }}
         >
             <Link
-                href={route("extended.show", { id: miracle.id })}
+                href={
+                    auth && auth.user
+                        ? route("extended.show", { id: miracle.id })
+                        : route("login")
+                }
                 className="w-full h-48 md:h-76 overflow-hidden flex items-center justify-center cursor-pointer"
             >
                 <div
@@ -29,7 +33,11 @@ const MiracleItem = ({ miracle, itemWidth }) => {
             </Link>
             <div className="mt-4 w-full text-center px-2">
                 <Link
-                    href={route("extended.show", { id: miracle.id })}
+                    href={
+                        auth && auth.user
+                            ? route("extended.show", { id: miracle.id })
+                            : route("login")
+                    }
                     className="text-xl md:text-2xl font-times"
                 >
                     {lengthTitle(miracle.title)}
