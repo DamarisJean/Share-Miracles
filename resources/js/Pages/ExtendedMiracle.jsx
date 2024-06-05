@@ -1,3 +1,5 @@
+// This component is responsible for displaying the detailed view of a miracle when one is selected in the Miracles section of the Dashboard.
+
 import React, { useEffect, useState } from "react";
 import { usePage } from "@inertiajs/react";
 import Likes from "../Components/Likes/Likes";
@@ -5,21 +7,28 @@ import useFetchMiracleById from "../Components/Hooks/useFetchMiracleById";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 export default function ExtendedMiracle() {
+    // Fetch miracle and user ID from page props using Inertia.js
     const { miracle, id } = usePage().props;
+
+    // Fetch the miracle data using the custom hook
     const {
         data: miracleData,
         loading,
         error,
     } = useFetchMiracleById(`/api/miracle/${id}`);
+
+    // State to manage whether the miracle is liked by the current user
     const [isLiked, setIsLiked] = useState(false);
     const { auth } = usePage().props;
 
+    // Update the liked state when the miracle data is fetched
     useEffect(() => {
         if (miracleData) {
             setIsLiked(miracleData.isLiked);
         }
     }, [miracleData]);
 
+    // Show loading indicator while the data is being fetched
     if (loading) {
         return (
             <div className="flex justify-center items-center h-screen">
@@ -28,11 +37,13 @@ export default function ExtendedMiracle() {
         );
     }
 
+    // Show error message if there's an error fetching the data
     if (error) {
         return <div className="text-center mt-4">{error}</div>;
     }
 
     return (
+        // Layout for authenticated users
         <AuthenticatedLayout user={auth.user}>
             <div className="max-w-2xl mx-auto py-5 px-4 bg-white rounded-lg mb-24 font-times">
                 <div className="mb-4 sm:p-0 p-6">

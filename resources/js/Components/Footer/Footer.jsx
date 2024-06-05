@@ -11,10 +11,10 @@ const Footer = () => {
                     <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
                     <p>If you have any questions, please reach out to us at:</p>
                     <a
-                        href="mailto:Miracles@gmail.com"
+                        href="mailto:contact@share-miracles.com"
                         className="text-blue-300 hover:text-blue-500"
                     >
-                        ShareMiraclesWithUs@gmail.com
+                        contact@share-miracles.com
                     </a>
                 </div>
                 <div className="w-full md:w-1/2 lg:w-1/3 mb-6">

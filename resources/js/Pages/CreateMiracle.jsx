@@ -1,27 +1,35 @@
+// This component allows the user to create a new miracle post with a title, content, and an optional image.
+
 import React, { useState, useRef } from "react";
 import axios from "axios";
 import Images from "../Components/Images/Images";
 import { CiImageOn } from "react-icons/ci";
-
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import PrimaryButton from "@/Components/Buttons/PrimaryButton";
 import { CiCircleCheck } from "react-icons/ci";
 
 export default function CreateMiracle({ auth }) {
+    // Hooks for managing the state of the title, content, and selected image.
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
-    const textAreaRef = useRef(null);
     const [selectedImage, setSelectedImage] = useState(null);
     const [showImageSelector, setShowImageSelector] = useState(false);
+
+    // Ref for the content text area to dynamically adjust its height.
+    const textAreaRef = useRef(null);
+
+    // State for managing the display of a popup message when there is a successful submission.
     const [showPopup, setShowPopup] = useState(false);
     const [popupMessage, setPopupMessage] = useState("");
 
+    // Updates the content state and adjusts the text areas height to fit the content.
     const handleContentChange = (e) => {
         setContent(e.target.value);
         textAreaRef.current.style.height = "inherit";
         textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`;
     };
 
+    // Submits the new miracle POST to the server and resets the form when its successful.
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -36,11 +44,9 @@ export default function CreateMiracle({ auth }) {
             setSelectedImage(null);
             textAreaRef.current.style.height = "inherit";
 
-            // Show the popup message
             setPopupMessage("Published");
             setShowPopup(true);
 
-            // Hide the popup message after 3 seconds
             setTimeout(() => {
                 setShowPopup(false);
             }, 3000);
@@ -49,6 +55,7 @@ export default function CreateMiracle({ auth }) {
         }
     };
 
+    // Opens the image selector modal when the image button is clicked.
     const handleImageClick = () => {
         setShowImageSelector(true);
     };

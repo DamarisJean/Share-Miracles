@@ -1,3 +1,5 @@
+// This is the default welcome page for authorized and unauthorized users.
+
 import { Link, Head } from "@inertiajs/react";
 import ApplicationLogo from "@/Components/Logo/ApplicationLogo";
 import MiraclesCarousel from "../Components/Carousel/MiraclesCarousel";

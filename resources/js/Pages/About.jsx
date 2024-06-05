@@ -1,3 +1,5 @@
+// About Us page link in Footer.
+
 import React from "react";
 
 const About = () => {
