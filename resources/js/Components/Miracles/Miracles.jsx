@@ -1,6 +1,8 @@
 import React from "react";
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import useFetchMiracleById from "../Hooks/useFetchMiracleById.jsx";
+
+// LIST OF MIRACLES
 
 export default function Miracles() {
     const { data: miracles, loading, error } = useFetchMiracleById("/miracles");
@@ -9,33 +11,33 @@ export default function Miracles() {
     if (error) return <div>Error: {error}</div>;
 
     return (
-        <div className="container mx-auto p-4 ">
-            <div className="flex flex-col space-y-6 font-times">
-                {" "}
+        <div className="container mx-auto flex justify-center sm:ml-20">
+            <div className="grid gap-8 font-times">
                 {miracles.map((miracle) => (
-                    <div key={miracle.id} className="w-3/4">
+                    <div
+                        key={miracle.id}
+                        className="flex flex-row sm:w-4/5 items-center border-b border-b-gray-200 pb-10 cursor-pointer"
+                    >
                         <Link
                             href={route("extended.show", { id: miracle.id })}
-                            className="block p-6 bg-white  border-b border-gray-300"
+                            className="flex-1 md:w-auto"
                         >
-                            <div className="flex justify-between items-center">
-                                <div className="flex-1 pr-4">
-                                    <h2 className="text-2xl font-semibold mb-2">
-                                        {miracle.title}
-                                    </h2>
-                                    <p className="text-gray-700">
-                                        {miracle.content.substring(0, 200)}...
-                                    </p>
-                                </div>
-                                {miracle.image?.path && (
-                                    <img
-                                        src={miracle.image.path}
-                                        alt={miracle.title}
-                                        className="w-32 h-32 rounded object-cover"
-                                    />
-                                )}
+                            <div className="bg-white">
+                                <h2 className="text-xl font-semibold mb-2">
+                                    {miracle.title}
+                                </h2>
+                                <p className="text-gray-700 text-xs md:text-base">
+                                    {miracle.content.substring(0, 200)}...
+                                </p>
                             </div>
                         </Link>
+                        {miracle.image?.path && (
+                            <img
+                                src={miracle.image.path}
+                                alt={miracle.title}
+                                className="w-28 h-28 object-cover ml-4"
+                            />
+                        )}
                     </div>
                 ))}
             </div>

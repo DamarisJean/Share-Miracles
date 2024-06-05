@@ -1,3 +1,5 @@
+// Dashboard displays the list of miracles when the user is Authenticated next to Create Miracle section.
+
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
 import Miracles from "../Components/Miracles/Miracles.jsx";

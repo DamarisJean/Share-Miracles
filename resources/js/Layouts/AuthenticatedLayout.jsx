@@ -3,6 +3,7 @@ import ApplicationLogo from "@/Components/Logo/ApplicationLogo";
 import Dropdown from "@/Components/Dropdown";
 import NavLink from "@/Components/Navigation/NavLink";
 import ResponsiveNavLink from "@/Components/Navigation/ResponsiveNavLink";
+import Footer from "@/Components/Footer/Footer";
 import { Link } from "@inertiajs/react";
 
 export default function AuthenticatedLayout({ user, header, children }) {
@@ -11,22 +12,21 @@ export default function AuthenticatedLayout({ user, header, children }) {
 
     return (
         <div className="min-h-screen bg-white">
-            <nav className="bg-white border-b ">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav className="bg-white border-b">
+                <div className="mx-auto">
                     <div className="flex justify-between h-16">
                         <div className="flex">
-                            <div className="shrink-0 flex items-center h-25">
+                            <div className="flex items-center mr-24">
                                 <Link href="/">
-                                    <ApplicationLogo className="block h-20 w-auto fill-current" />
+                                    <ApplicationLogo className="sm:ml-8 ml-8 h-9" />
                                 </Link>
                             </div>
-
-                            <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <div className="hidden space-x-8 sm:flex sm:ml-10">
                                 <NavLink
                                     href={route("dashboard")}
                                     active={route().current("dashboard")}
                                 >
-                                    READ MRIACLES
+                                    MIRACLES LIST
                                 </NavLink>
                                 <NavLink
                                     href={route("create")}
@@ -34,22 +34,24 @@ export default function AuthenticatedLayout({ user, header, children }) {
                                 >
                                     CREATE MIRACLE
                                 </NavLink>
+                                <NavLink
+                                    href="/extended/{id}"
+                                    active={route().current("/extended/{id}")}
+                                />
                             </div>
                         </div>
-
-                        <div className="hidden sm:flex sm:items-center sm:ms-6">
-                            <div className="ms-3 relative">
+                        <div className="hidden sm:flex sm:items-center sm:ml-6">
+                            <div className="relative ml-3">
                                 <Dropdown>
                                     <Dropdown.Trigger>
-                                        <span className="inline-flex rounded-md">
+                                        <span className="inline-flex rounded-md mr-10">
                                             <button
                                                 type="button"
-                                                className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
+                                                className=" inline-flex items-center px-3 py-2 border border-transparent text-sm font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
                                             >
                                                 {user.name}
-
                                                 <svg
-                                                    className="ms-2 -me-0.5 h-4 w-4"
+                                                    className="ml-2 -mr-0.5 h-4 w-4"
                                                     src="http://www.w3.org/2000/svg"
                                                     viewBox="0 0 20 20"
                                                     fill="currentColor"
@@ -63,7 +65,6 @@ export default function AuthenticatedLayout({ user, header, children }) {
                                             </button>
                                         </span>
                                     </Dropdown.Trigger>
-
                                     <Dropdown.Content>
                                         <Dropdown.Link
                                             href={route("profile.edit")}
@@ -81,15 +82,14 @@ export default function AuthenticatedLayout({ user, header, children }) {
                                 </Dropdown>
                             </div>
                         </div>
-
-                        <div className="-me-2 flex items-center sm:hidden">
+                        <div className="flex items-center sm:hidden mr-4">
                             <button
                                 onClick={() =>
                                     setShowingNavigationDropdown(
-                                        (previousState) => !previousState
+                                        !showingNavigationDropdown
                                     )
                                 }
-                                className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
+                                className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none transition duration-150 ease-in-out"
                             >
                                 <svg
                                     className="h-6 w-6"
@@ -124,38 +124,34 @@ export default function AuthenticatedLayout({ user, header, children }) {
                         </div>
                     </div>
                 </div>
-
                 <div
-                    className={
-                        (showingNavigationDropdown ? "block" : "hidden") +
-                        " sm:hidden"
-                    }
+                    className={`${
+                        showingNavigationDropdown ? "block" : "hidden"
+                    } sm:hidden`}
                 >
                     <div className="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink
                             href={route("dashboard")}
                             active={route().current("dashboard")}
                         >
-                            Dashboard
+                            MIRACLES LIST
                         </ResponsiveNavLink>
                         <ResponsiveNavLink
                             href={route("create")}
                             active={route().current("create")}
                         >
-                            Create
+                            CREATE MIRACLE
                         </ResponsiveNavLink>
                     </div>
-
-                    <div className="pt-4 pb-1 border-t border-gray-200">
+                    <div className="pt-4 pb-1 border-t border-gray-200 ">
                         <div className="px-4">
-                            <div className="font-medium text-base text-gray-800">
+                            <div className="font-medium text-base text-gray-800 ">
                                 {user.name}
                             </div>
-                            <div className="font-medium text-sm text-gray-500">
+                            <div className="font-medium text-sm text-gray-500 ">
                                 {user.email}
                             </div>
                         </div>
-
                         <div className="mt-3 space-y-1">
                             <ResponsiveNavLink href={route("profile.edit")}>
                                 Profile
@@ -171,7 +167,6 @@ export default function AuthenticatedLayout({ user, header, children }) {
                     </div>
                 </div>
             </nav>
-
             {header && (
                 <header className="bg-white shadow">
                     <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
@@ -179,8 +174,8 @@ export default function AuthenticatedLayout({ user, header, children }) {
                     </div>
                 </header>
             )}
-
             <main>{children}</main>
+            <Footer />
         </div>
     );
 }

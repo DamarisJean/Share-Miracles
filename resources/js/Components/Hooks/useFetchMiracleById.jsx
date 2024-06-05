@@ -11,6 +11,7 @@ const useFetchMiracleById = (url) => {
             try {
                 const response = await axios.get(url);
                 setData(response.data);
+                console.log(response.data);
             } catch (error) {
                 setError("There was an error fetching the miracle");
                 console.error(error);

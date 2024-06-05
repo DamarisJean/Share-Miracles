@@ -9,10 +9,10 @@ use Inertia\Inertia;
 
 class MiracleController extends Controller
 {
-    // List all miracles
+    // List all miracles in desc order
     public function index()
     {
-        $miracles = Miracle::with('user:id,name', 'image')->get(); 
+        $miracles = Miracle::with('image')->orderBy('created_at', 'desc')->get();
         return response()->json($miracles);
     }
     
