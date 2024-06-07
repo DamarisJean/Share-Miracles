@@ -1,5 +1,4 @@
 // This is the default welcome page for authorized and unauthorized users.
-
 import { Link, Head } from "@inertiajs/react";
 import ApplicationLogo from "@/Components/Logo/ApplicationLogo";
 import MiraclesCarousel from "../Components/Carousel/MiraclesCarousel";
@@ -35,6 +34,7 @@ export default function Welcome({ auth }) {
                         <strong>read the stories</strong> of others, and{" "}
                         <strong>share your own.</strong>
                     </p>
+                    {/* Logic for Authorised and Unauthorized anunusers */}
                     <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mt-20">
                         <div className="text-[#ffffff] text-xs sm:text-base px-6 sm:px-8 lg:px-32 py-4 rounded-full tracking-widest uppercase font-bold bg-[#2a4047] transition duration-100 ease-in-out active:bg-opacity-55">
                             {auth.user ? (
