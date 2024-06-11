@@ -44,9 +44,11 @@ export default function CreateMiracle({ auth }) {
             setSelectedImage(null);
             textAreaRef.current.style.height = "inherit";
 
+            // Displays the success message
             setPopupMessage("Published");
             setShowPopup(true);
 
+            // Sets a time out for the success message
             setTimeout(() => {
                 setShowPopup(false);
             }, 3000);
@@ -61,6 +63,7 @@ export default function CreateMiracle({ auth }) {
     };
 
     return (
+        // Layout for authenticated users
         <AuthenticatedLayout user={auth.user}>
             <div className="min-h-screen flex flex-col items-center justify-start pt-8">
                 <div className="space-y-8 px-12">

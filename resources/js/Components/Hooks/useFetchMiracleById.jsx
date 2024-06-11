@@ -1,3 +1,5 @@
+// This component is responsable for fetching a Miracle by its ID.
+
 import { useState, useEffect } from "react";
 import axios from "axios";
 

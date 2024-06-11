@@ -17,7 +17,7 @@ const CallToActionSection = () => {
                 Don't Forget To Share Your Own
             </h1>
             {/* This link redirects to the "create" route.
-                The authorization logic for this route is handled in the server-side routing file (e.g., web.php for Laravel) */}
+                The authorization logic for this route is handled in the server-side routing file ( web.php ) */}
             <Link
                 className="relative z-10 inline-flex items-center justify-center py-4 text-white sm:px-32 px-8 text-xs sm:text-base font-bold uppercase ease-in-out active:bg-opacity-55 tracking-widest bg-[#2a4047] rounded-full transition duration-100 transform hover:scale-110 hover:text-white mb-24 mt-12"
                 href={route("create")}

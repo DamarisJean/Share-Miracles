@@ -19,9 +19,8 @@ export default function Welcome({ auth }) {
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#DFDAD6]"></div>
                 </div>
                 <div className="relative flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 pt-12">
-                    <Link href="/">
-                        <ApplicationLogo className="h-40 sm:h-48 p-10" />
-                    </Link>
+                    <ApplicationLogo className="h-40 sm:h-48 p-10" />
+
                     <div className="mt-8 sm:mt-12">
                         <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold tracking-tight text-[#2a4047]">
                             Experience Miracles &
@@ -37,6 +36,7 @@ export default function Welcome({ auth }) {
                     {/* Logic for Authorised and Unauthorized anunusers */}
                     <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mt-20">
                         <div className="text-[#ffffff] text-xs sm:text-base px-6 sm:px-8 lg:px-32 py-4 rounded-full tracking-widest uppercase font-bold bg-[#2a4047] transition duration-100 ease-in-out active:bg-opacity-55">
+                            {/* If there is an Authorised user we will redirect him to "dashboard" if we have Unauthorized user, we redirect to "login"  */}
                             {auth.user ? (
                                 <Link href={route("dashboard")}>
                                     START READING HERE
@@ -52,8 +52,10 @@ export default function Welcome({ auth }) {
             </div>
 
             <div className="relative">
+                {/* We import the miracle carousel */}
                 <MiraclesCarousel />
             </div>
+            {/* We import the footer */}
             <Footer />
         </>
     );
