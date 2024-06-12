@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://share-miracles.com" target="_blank">
-        <img src="images/homepageMiracles.jpg" width="400" alt="Share-Miracles">
+    <img src="images/homepageMiracles.jpg" alt="Miracles Image">
     </a>
 </p>
 
