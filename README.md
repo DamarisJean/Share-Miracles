@@ -95,13 +95,7 @@ Manages user profile information, password changes, and account deletion.
     php artisan serve
     ```
 
-## Contributing
 
-Thank you for considering contributing to Share-Miracles! Please see the [contribution guide](https://laravel.com/docs/contributions) for details.
-
-## License
-
-Share-Miracles is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 ## Contact
 
